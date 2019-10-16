@@ -45,7 +45,7 @@ def greet_person():
 @app.route('/game')
 def show_madlib_form():
     answer = request.args.get("yesno")
-     
+
     if answer == "yes":
         return render_template("game.html")
 
@@ -67,6 +67,31 @@ def show_madlib():
                            noun=noun,
                            adjective=adjective,
                            color=color)
+
+
+@app.route('/madlib2')
+def show_second_madlib():
+    name = request.args.get("name")
+    color1 = request.args.get("color1")
+    color2 = request.args.get("color2")
+    color3 = request.args.get("color3")
+    size_adj = request.args.getlist("size-adj")  # checkboxes
+    room = request.args.get("room")
+    number1 = request.args.get("number1")
+    number2 = request.args.get("number2")
+    time = request.args.get("time")
+
+    return render_template("madlib2.html",
+                           name=name,
+                           color1=color1,
+                           color2=color2,
+                           color3=color3,
+                           size_adj=size_adj,
+                           room=room,
+                           number1=number1,
+                           number2=number2,
+                           time=time
+                           )
 
 
 if __name__ == '__main__':
