@@ -3,7 +3,9 @@
 {% block title %}A Compliment{% endblock %}
 
 {% block body %}
-    Hi {{ person }}! I think you're {{ compliment }}!
+    Hi {{ person }}! I think you're
+    {% for compliment in compliments %} 
+    {% if loop.last %}and {% endif %}{{ compliment }}{% if not loop.last%},{% endif%}{% endfor %}!
 
     <section>
         <form action="/game">
