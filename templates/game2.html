@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Play a game!</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Play a game!{% endblock %}
+{% block body %}
     <section>
         <form action="/madlib2">
             <p>
-                A Name: <input type="text" name="name">
+                A <select name="gender">
+                    <option value="boy">Boy's</option>
+                    <option value="girl">Girl's</option>
+                    <option value="other">Human's</option> 
+                    Name: <input type="text" name="name">
             </p>
 
             <p>
@@ -60,8 +61,8 @@
             <input type="submit">
         </form>
     </section>
-</body>
-</html>
+{% endblock %}
+
 
 <!--[name] A (boy or girl)'s name X
     [color1] A color X

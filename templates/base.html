@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}THIS IS A TITLE{% endblock %}</title>
+    <link rel="stylesheet" href="/static/madlibs.css">
+    
+</head>
+<body>
+    <div id="page-container">
+        <div id="content-wrap">
+            {% block body %}THIS IS A BODY{% endblock %}
+        </div>
+        <footer id="footer">Hackbright Stuff</footer>
+    </div>
+</body>
+</html>

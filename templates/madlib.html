@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Madlib</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Hackbright Lab{% endblock %}
+{% block body %}
     <p>
         There once was a {{ color }} {{ noun }} sitting in the Hackbright Lab. When {{ person }} went to pick it up, it burst into flames in a totally {{ adjective }} way.
     </p>
-</body>
-</html>
+{% endblock %}
 
 <!-- 
 [name] closed the big [color1] book. It slammed shut with a [adj] bang, and a huge cloud of dust came from the old pages. [name] put the book back into the bookcase in the [room], next to [number1] copies of the Lord of the Rings, the best book ever written. As [name] went to bed they smiled at the book and said, "I wish that I could fish!"

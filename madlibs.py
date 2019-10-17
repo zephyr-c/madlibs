@@ -46,11 +46,13 @@ def greet_person():
 def show_madlib_form():
     answer = request.args.get("yesno")
 
-    if answer == "yes":
-        return render_template("game.html")
+    possible_games = ["game.html", "game2.html"]
 
-    elif answer == "hellyes":
-        return render_template("game2.html")
+    if answer == "yes":
+        return render_template(choice(possible_games))
+
+    # elif answer == "hellyes":
+    #     return render_template("game2.html")
 
     else:
         return render_template("goodbye.html")
@@ -72,6 +74,7 @@ def show_madlib():
 @app.route('/madlib2')
 def show_second_madlib():
     name = request.args.get("name")
+    gender = request.args.get("gender")
     color1 = request.args.get("color1")
     color2 = request.args.get("color2")
     color3 = request.args.get("color3")
@@ -80,6 +83,17 @@ def show_second_madlib():
     number1 = request.args.get("number1")
     number2 = request.args.get("number2")
     time = request.args.get("time")
+
+    male = ['he', 'him', 'his']
+    female = ['she', 'her', 'her']
+    other = ['they', 'them', 'their']
+
+    if gender == 'boy':
+        nominative, oblique, possessive = male
+    elif gender == 'girl':
+        nominative, oblique, possessive = female
+    else:
+        nominative, oblique, possessive = other
 
     return render_template("madlib2.html",
                            name=name,
@@ -90,7 +104,10 @@ def show_second_madlib():
                            room=room,
                            number1=number1,
                            number2=number2,
-                           time=time
+                           time=time,
+                           nominative=nominative,
+                           oblique=oblique,
+                           possessive=possessive
                            )
 
 
