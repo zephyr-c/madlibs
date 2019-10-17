@@ -34,8 +34,9 @@ def greet_person():
     """Greet user with compliment."""
 
     player = request.args.get("person")
+    quantity = request.args.get("quantity")
 
-    compliments = sample(AWESOMENESS, 3)
+    compliments = sample(AWESOMENESS, int(quantity))
 
     return render_template("compliment.html",
                            person=player,
